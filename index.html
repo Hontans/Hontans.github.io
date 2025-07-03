@@ -6,30 +6,29 @@
     <link rel="stylesheet" href="style.css">
     <title>Sylvain Hontans</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
     <header class="header">
         <nav class="navbar">
             <a href="#" class="logo">Sylvain HONTANS.</a>
-            <a href="#" class="active">Moi</a>
-            <a href="#">Projets</a>
-            <a href="#">Activités professionnelles</a>
-            <a href="#">Veille technologique</a>
+            <a href="#home" class="nav-link active">Moi</a>
+            <a href="#projets" class="nav-link">Projets</a>
+            <a href="#activites" class="nav-link">Activités professionnelles</a>
+            <a href="#veille" class="nav-link">Veille technologique</a>
         </nav>
     </header>
-    <section class="home">
+    
+    <section id="home" class="home section">
         <div class="home-content">
-            <h1>Hi, I'm Sylvain Hontans</h1>
+            <h1>Salut, je suis Sylvain Hontans</h1>
             <h3>Parcours Professionnel</h3>
-            <p>Iplslclng e It. La orum, vo uptatl us. I
-                mquam, maiores obcaecati architecto volu
-                Iupate, Facere iusto asperiores accusamIplslclng It. La orum, vo uptatl us. I
-                mquam, maiores obcaecati architecto volu
-                Iuptate, Facere iusto asperiores accusam.</p>
+            <p>Je m'appelle HONTANS Sylvain, j'ai 18 ans et je suis titulaire d'un Bac PRO Systèmes Numériques option RISC (Réseaux Informatiques et Systèmes Communicants). Actuellement, je poursuis mes études en première année de BTS Services Informatiques aux Organisations (SIO) avec la spécialité SLAM (Solutions Logicielles et Applications Métiers).</p>
                 <div class="btn-box">
-                    <a href="#">Hire Me</a>
-                    <a href="#">Let's Talk</a>
+                    <a href="#">Me contacter</a>
+                    <a href="#">CV</a>
                 </div>
         </div>
         <div class="home-sci">
@@ -39,5 +38,96 @@
         </div>
         <span class="home-imgHover"></span>
     </section>
+
+    <section id="projets" class="section" style="display: none;">
+        <div class="section-content">
+            <h2>Mes Projets</h2>
+            <p>Section des projets à développer...</p>
+        </div>
+    </section>
+
+    <section id="activites" class="section" style="display: none;">
+        <div class="section-content">
+            <h2>Activités Professionnelles</h2>
+            <p>Section des activités professionnelles à développer...</p>
+        </div>
+    </section>
+
+    <section id="veille" class="section" style="display: none;">
+        <div class="section-content">
+            <h2>Veille Technologique</h2>
+            
+            <div class="veille-item">
+                <h3>Définition de mes thèmes de veille</h3>
+                <p>Description des thématiques technologiques suivies...</p>
+            </div>
+            
+            <div class="veille-item">
+                <h3>Stratégie de collecte</h3>
+                <p>Méthodologie et outils utilisés pour la collecte d'informations...</p>
+            </div>
+            
+            <div class="veille-item">
+                <h3>Exploitation des données</h3>
+                <p>Analyse et traitement des informations collectées dans le respect des bonnes pratiques...</p>
+            </div>
+            
+            <div class="veille-item">
+                <h3>Synthèse</h3>
+                <p>Résumé et conclusions de ma veille technologique...</p>
+            </div>
+            
+            <div class="veille-item">
+                <h3>Diffusion</h3>
+                <p>Partage et diffusion de ma veille via différents canaux :</p>
+                <div class="diffusion-links">
+                    <a href="#" class="flipboard-link">
+                        <i class='bx bxl-flipboard'></i>
+                        Consulter ma veille sur Flipboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+        <script>particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#928DAB"},"shape":{"type":"circle"},"opacity":{"value":0.5,"random":false,"anim":{"enable":false}},"size":{"value":3,"random":true},"line_linked":{"enable":true,"distance":150,"color":"#928DAB","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":140,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});</script>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav links
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                        section.style.opacity = '0';
+                    });
+                    
+                    // Show target section with animation
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.style.display = 'block';
+                        setTimeout(() => {
+                            targetSection.style.opacity = '1';
+                        }, 50);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
