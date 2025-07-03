@@ -8,7 +8,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </head>
 
@@ -29,7 +28,7 @@
             <h3>Parcours Professionnel</h3>
             <p>Je m'appelle HONTANS Sylvain, j'ai 18 ans et je suis titulaire d'un Bac PRO Systèmes Numériques option RISC (Réseaux Informatiques et Systèmes Communicants). Actuellement, je poursuis mes études en première année de BTS Services Informatiques aux Organisations (SIO) avec la spécialité SLAM (Solutions Logicielles et Applications Métiers).</p>
                 <div class="btn-box">
-                    <a href="#">Me contacter</a>
+                    <a href="#" id="contact-btn">Me contacter</a>
                     <a href="CV_SH.pdf" target="_blank">CV</a>
                 </div>
         </div>
@@ -40,6 +39,25 @@
         </div>
         <span class="home-imgHover"></span>
     </section>
+
+    <!-- Modal de contact -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Me contacter</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="user-email">Votre email :</label>
+                    <input type="email" id="user-email" name="user-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
 
     <section id="projets" class="section" style="display: none;">
         <div class="section-content">
@@ -85,30 +103,25 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section');
 
+            // Navigation entre sections
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Remove active class from all nav links
                     navLinks.forEach(nav => nav.classList.remove('active'));
-                    
-                    // Add active class to clicked link
                     this.classList.add('active');
                     
-                    // Hide all sections
                     sections.forEach(section => {
                         section.style.display = 'none';
                         section.classList.remove('active');
                     });
                     
-                    // Show target section
                     const targetId = this.getAttribute('href').substring(1);
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
                         targetSection.style.display = 'flex';
                         targetSection.classList.add('active');
                         
-                        // Force reflow
                         setTimeout(() => {
                             targetSection.style.opacity = '1';
                         }, 10);
@@ -116,12 +129,30 @@
                 });
             });
 
-            // Ensure home section is visible by default
-            const homeSection = document.getElementById('home');
-            if (homeSection) {
-                homeSection.style.display = 'flex';
-                homeSection.style.opacity = '1';
-            }
+            // Modal de contact
+            const modal = document.getElementById('contact-modal');
+            const contactBtn = document.getElementById('contact-btn');
+            const closeBtn = document.querySelector('.close');
+            const contactForm = document.getElementById('contact-form');
+
+            // Ouvrir la modal
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+            });
+
+            // Fermer la modal
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Fermer la modal en cliquant à l'extérieur
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
         });
     </script>
 </body>
