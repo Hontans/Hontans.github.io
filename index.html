@@ -88,25 +88,39 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
+                    // Remove active class from all nav links
                     navLinks.forEach(nav => nav.classList.remove('active'));
                     
+                    // Add active class to clicked link
                     this.classList.add('active');
                     
+                    // Hide all sections
                     sections.forEach(section => {
                         section.style.display = 'none';
-                        section.style.opacity = '0';
+                        section.classList.remove('active');
                     });
                     
+                    // Show target section
                     const targetId = this.getAttribute('href').substring(1);
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
-                        targetSection.style.display = 'block';
+                        targetSection.style.display = 'flex';
+                        targetSection.classList.add('active');
+                        
+                        // Force reflow
                         setTimeout(() => {
                             targetSection.style.opacity = '1';
-                        }, 50);
+                        }, 10);
                     }
                 });
             });
+
+            // Ensure home section is visible by default
+            const homeSection = document.getElementById('home');
+            if (homeSection) {
+                homeSection.style.display = 'flex';
+                homeSection.style.opacity = '1';
+            }
         });
     </script>
 </body>
