@@ -59,6 +59,10 @@ body {
     color: #fd2ec5;
 }
 
+.navbar a:first-of-type {
+    margin-right: 500px; /* Espace spécifique pour le premier lien */
+}
+
 .home{
     height: 100vh;
     background: url('home3.jpg') no-repeat;
