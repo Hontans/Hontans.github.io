@@ -104,21 +104,28 @@ body {
 }
 
 .btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: #928DAB;
-    border-radius: 40px;
-    box-shadow: 0 0 10px #928DAB;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 160px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #928DAB;
+    border-radius: 25px;
     font-size: 16px;
-    color: #1F1C2C;
+    color: #928DAB;
     text-decoration: none;
     font-weight: 600;
-    letter-spacing: 1px;
     transition: .5s ease;
+    padding: 12px 28px;
 }
 
 .btn:hover {
-    box-shadow: none;
+    background: #928DAB;
+    color: #1F1C2C;
+    box-shadow: 0 0 20px #928DAB;
 }
 
 .btn.btn-outline {
@@ -130,16 +137,17 @@ body {
 .btn.btn-outline:hover {
     background: #928DAB;
     color: #1F1C2C;
+    box-shadow: 0 0 20px #928DAB;
 }
 
 .home-sci {
-    position: absolute;
-    bottom: 40px;
-    width: 170px;
-    display: flex;
-    justify-content: space-between;
+    position: fixed;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 100;
 }
 
 .home-sci a {
@@ -172,21 +180,29 @@ body {
 }
 
 .btn-box a {
-    display: inline-block;
-    padding: 12px 28px;
-    background: #928DAB;
-    border-radius: 40px;
-    box-shadow: 0 0 10px #928DAB;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 2px solid #928DAB;
+    border-radius: 25px;
     font-size: 16px;
-    color: #1F1C2C;
+    color: #928DAB;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
     transition: .5s ease;
+    padding: 12px 28px;
+    width: auto;
+    min-width: 160px;
+    height: 50px;
 }
 
 .btn-box a:hover {
-    box-shadow: 0 0 25px #928DAB, 0 0 50px #928DAB;
+    background: #928DAB;
+    color: #1F1C2C;
+    box-shadow: 0 0 20px #928DAB;
 }
 
 .btn-box a:nth-child(2) {
@@ -199,7 +215,7 @@ body {
 .btn-box a:nth-child(2):hover {
     background: #928DAB;
     color: #1F1C2C;
-    box-shadow: 0 0 25px #928DAB, 0 0 50px #928DAB;
+    box-shadow: 0 0 20px #928DAB;
 }
 
 .section {
@@ -269,26 +285,31 @@ body {
 }
 
 .flipboard-link {
+    position: relative;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
-    background: linear-gradient(45deg, #928DAB, #6D678A);
-    color: #1F1C2C;
-    padding: 1.2rem 3rem;
-    border-radius: 4rem;
+    background: transparent;
+    color: #928DAB;
+    padding: 12px 28px;
+    border: 2px solid #928DAB;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    transition: .5s ease;
+    width: auto;
+    min-width: 160px;
+    height: 50px;
 }
 
 .flipboard-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #928DAB;
-    background: transparent;
-    color: #928DAB;
-    border-color: #928DAB;
+    background: #928DAB;
+    color: #1F1C2C;
+    box-shadow: 0 0 20px #928DAB;
+    transform: none;
 }
+
 
 .flipboard-link i {
     font-size: 20px;
