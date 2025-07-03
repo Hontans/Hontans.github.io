@@ -28,13 +28,13 @@
             <p>Je m'appelle HONTANS Sylvain, j'ai 18 ans et je suis titulaire d'un Bac PRO Systèmes Numériques option RISC (Réseaux Informatiques et Systèmes Communicants). Actuellement, je poursuis mes études en première année de BTS Services Informatiques aux Organisations (SIO) avec la spécialité SLAM (Solutions Logicielles et Applications Métiers).</p>
                 <div class="btn-box">
                     <a href="#">Me contacter</a>
-                    <a href="#">CV</a>
+                    <a href="CV_SH.pdf" target="_blank">CV</a>
                 </div>
         </div>
         <div class="home-sci">
-            <a href="#"><i class='bx bxl-github'></i></a>
-            <a href="#"><i class='bx bxl-flipboard'></i></a>
-            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/Hontans" target="_blank"><i class='bx bxl-github'></i></a>
+            <a href="https://flipboard.com/following/magazines" target="_blank"><i class='bx bx-book-reader'></i></a>
+            <a href="https://www.linkedin.com/in/sylvain-hontans-0aa645345/" target="_blank"><i class='bx bxl-linkedin'></i></a>
         </div>
         <span class="home-imgHover"></span>
     </section>
@@ -58,34 +58,18 @@
             <h2>Veille Technologique</h2>
             
             <div class="veille-item">
-                <h3>Définition de mes thèmes de veille</h3>
-                <p>Description des thématiques technologiques suivies...</p>
+                <h3>Définition et thèmes de ma veille</h3>
+                <p>La veille technologique consiste à surveiller les évolutions et innovations dans un domaine spécifique pour rester informé des dernières tendances.</p>
+                <p><strong>Mes thèmes :</strong> Développement web, C#/.NET, C++, Hardware (Intel, AMD, NVIDIA)</p>
             </div>
             
             <div class="veille-item">
-                <h3>Stratégie de collecte</h3>
-                <p>Méthodologie et outils utilisés pour la collecte d'informations...</p>
+                <h3>C'est quoi Flipboard ?</h3>
+                <p>Flipboard est un site web qui permet d'organiser et de partager des articles, actualités et informations sous forme de magazines numériques personnalisés. C'est un outil idéal pour structurer et diffuser sa veille technologique de manière visuelle et accessible.</p>
             </div>
-            
-            <div class="veille-item">
-                <h3>Exploitation des données</h3>
-                <p>Analyse et traitement des informations collectées dans le respect des bonnes pratiques...</p>
-            </div>
-            
-            <div class="veille-item">
-                <h3>Synthèse</h3>
-                <p>Résumé et conclusions de ma veille technologique...</p>
-            </div>
-            
-            <div class="veille-item">
-                <h3>Diffusion</h3>
-                <p>Partage et diffusion de ma veille via différents canaux :</p>
-                <div class="diffusion-links">
-                    <a href="#" class="flipboard-link">
-                        <i class='bx bxl-flipboard'></i>
-                        Consulter ma veille sur Flipboard
-                    </a>
-                </div>
+
+            <div class="diffusion-links">
+                <a href="https://flipboard.com/following/magazines" target="_blank" class="flipboard-link">Consulter ma veille sur Flipboard</a>
             </div>
         </div>
     </section>
@@ -95,7 +79,6 @@
     </div>
 
     <script>
-        // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section');
@@ -104,19 +87,15 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Remove active class from all nav links
                     navLinks.forEach(nav => nav.classList.remove('active'));
                     
-                    // Add active class to clicked link
                     this.classList.add('active');
                     
-                    // Hide all sections
                     sections.forEach(section => {
                         section.style.display = 'none';
                         section.style.opacity = '0';
                     });
                     
-                    // Show target section with animation
                     const targetId = this.getAttribute('href').substring(1);
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
