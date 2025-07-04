@@ -425,10 +425,10 @@ canvas {
     right: -300px;
     width: 300px;
     height: 100vh;
-    background: linear-gradient(135deg, #1e1e2e, #2a2a40);
+    background: rgba(30, 30, 46, 0.3);
+    backdrop-filter: blur(10px);
     z-index: 1001;
     transition: right 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .drawer.open {
@@ -497,7 +497,6 @@ canvas {
 
 .drawer-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    border-left-color: #928DAB;
 }
 
 .drawer-link.active {
