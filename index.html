@@ -15,12 +15,35 @@
     <header class="header">
         <nav class="navbar">
             <a href="#home" class="nav-link logo">Sylvain HONTANS.</a>
-            <a href="#home" class="nav-link active">Moi</a>
-            <a href="#projets" class="nav-link">Projets</a>
-            <a href="#activites" class="nav-link">Activités professionnelles</a>
-            <a href="#veille" class="nav-link">Veille technologique</a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Moi</a>
+                <a href="#projets" class="nav-link">Projets</a>
+                <a href="#activites" class="nav-link">Activités professionnelles</a>
+                <a href="#veille" class="nav-link">Veille technologique</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
+    
+    <div class="drawer-overlay"></div>
+    <div class="drawer">
+        <div class="drawer-header">
+            <h3>Menu</h3>
+            <button class="drawer-close">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        <div class="drawer-menu">
+            <a href="#home" class="drawer-link active">Moi</a>
+            <a href="#projets" class="drawer-link">Projets</a>
+            <a href="#activites" class="drawer-link">Activités professionnelles</a>
+            <a href="#veille" class="drawer-link">Veille technologique</a>
+        </div>
+    </div>
     
     <section id="home" class="home section">
         <div class="home-content">
@@ -100,33 +123,76 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
             const sections = document.querySelectorAll('.section');
+            const hamburger = document.querySelector('.hamburger');
+            const drawer = document.querySelector('.drawer');
+            const drawerOverlay = document.querySelector('.drawer-overlay');
+            const drawerClose = document.querySelector('.drawer-close');
 
-            // Navigation entre sections
+            // Fonction pour changer de section
+            function changeSection(targetId, clickedElement) {
+                // Retirer active de tous les liens
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                drawerLinks.forEach(link => link.classList.remove('active'));
+                
+                // Ajouter active au lien cliqué
+                clickedElement.classList.add('active');
+                
+                // Masquer toutes les sections
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                    section.classList.remove('active');
+                });
+                
+                // Afficher la section cible
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.style.display = 'flex';
+                    targetSection.classList.add('active');
+                    
+                    setTimeout(() => {
+                        targetSection.style.opacity = '1';
+                    }, 10);
+                }
+            }
+
+            // Navigation entre sections (navbar desktop)
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    navLinks.forEach(nav => nav.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    sections.forEach(section => {
-                        section.style.display = 'none';
-                        section.classList.remove('active');
-                    });
-                    
                     const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    if (targetSection) {
-                        targetSection.style.display = 'flex';
-                        targetSection.classList.add('active');
-                        
-                        setTimeout(() => {
-                            targetSection.style.opacity = '1';
-                        }, 10);
-                    }
+                    changeSection(targetId, this);
                 });
             });
+
+            // Navigation entre sections (drawer mobile)
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    changeSection(targetId, this);
+                    closeDrawer();
+                });
+            });
+
+            // Fonctions pour gérer le drawer
+            function openDrawer() {
+                drawer.classList.add('open');
+                drawerOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDrawer() {
+                drawer.classList.remove('open');
+                drawerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Événements du drawer
+            hamburger.addEventListener('click', openDrawer);
+            drawerClose.addEventListener('click', closeDrawer);
+            drawerOverlay.addEventListener('click', closeDrawer);
 
             // Modal de contact
             const modal = document.getElementById('contact-modal');
