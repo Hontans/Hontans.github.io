@@ -34,7 +34,7 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 2rem; /* Augmentation de 1.5rem à 2rem */
     font-weight: bold;
     color: #fff;
     text-decoration: none;
@@ -524,6 +524,10 @@ canvas {
         margin: 0 30px; /* Réduction légère de la marge */
     }
     
+    .logo {
+        font-size: 1.8rem; /* Augmentation pour écrans moyens-larges */
+    }
+    
     .home,
     .section {
         padding: 20px 5% 2rem;
@@ -541,6 +545,10 @@ canvas {
     
     .navbar {
         margin: 0 20px; /* Réduction de la marge pour les écrans moyens */
+    }
+    
+    .logo {
+        font-size: 1.6rem; /* Augmentation pour écrans moyens */
     }
     
     .navbar a {
@@ -589,6 +597,10 @@ canvas {
         justify-content: space-between;
         margin: 0 15px; /* Marge réduite pour tablettes */
     }
+    
+    .logo {
+        font-size: 1.4rem; /* Augmentation pour tablettes */
+    }
 }
 
 @media (max-width: 576px) {
@@ -597,7 +609,7 @@ canvas {
     }
     
     .logo {
-        font-size: 22px;
+        font-size: 1.3rem; /* Augmentation de 22px à environ 1.3rem */
     }
     
     .navbar {
@@ -707,7 +719,7 @@ canvas {
     }
     
     .logo {
-        font-size: 20px;
+        font-size: 1.1rem; /* Augmentation de 20px à environ 1.1rem */
     }
     
     .navbar {
