@@ -17,7 +17,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0;
+    padding: 20px; /* Ajout de padding pour la marge */
     background: transparent;
     display: flex;
     justify-content: space-between;
@@ -30,6 +30,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin: 0 40px; /* Augmentation de la marge horizontale */
 }
 
 .logo {
@@ -185,7 +186,6 @@ body {
 
 .section {
     min-height: 100vh;
-    padding: 100px 9% 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -515,15 +515,18 @@ canvas {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-
 @media (max-width: 1200px) {
     .header {
         padding: 20px 5%;
     }
     
+    .navbar {
+        margin: 0 30px; /* Réduction légère de la marge */
+    }
+    
     .home,
     .section {
-        padding: 80px 5% 2rem;
+        padding: 20px 5% 2rem;
     }
     
     .section-content {
@@ -534,6 +537,10 @@ canvas {
 @media (max-width: 992px) {
     .header {
         padding: 15px 3%;
+    }
+    
+    .navbar {
+        margin: 0 20px; /* Réduction de la marge pour les écrans moyens */
     }
     
     .navbar a {
@@ -580,6 +587,7 @@ canvas {
     
     .navbar {
         justify-content: space-between;
+        margin: 0 15px; /* Marge réduite pour tablettes */
     }
 }
 
@@ -595,6 +603,7 @@ canvas {
     .navbar {
         width: 100%;
         justify-content: space-between;
+        margin: 0 10px; /* Marge encore réduite pour mobile */
     }
     
     .navbar a {
@@ -602,7 +611,6 @@ canvas {
     }
     
     .home {
-        padding: 120px 5% 2rem;
         text-align: center;
     }
     
@@ -700,6 +708,10 @@ canvas {
     
     .logo {
         font-size: 20px;
+    }
+    
+    .navbar {
+        margin: 0 5px; /* Marge minimale pour très petits écrans */
     }
     
     .navbar a {
