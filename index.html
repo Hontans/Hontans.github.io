@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -40,7 +40,6 @@
         <span class="home-imgHover"></span>
     </section>
 
-    <!-- Modal de contact -->
     <div id="contact-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -152,7 +151,47 @@
                     modal.style.display = 'none';
                 }
             });
-            
+
+            // Initialiser EmailJS
+            emailjs.init('ZrIAbgCHLv-PmZ8-l');
+
+            // Gestionnaire d'envoi du formulaire
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const userEmail = document.getElementById('user-email').value;
+                const message = document.getElementById('message').value;
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                
+                // Désactiver le bouton pendant l'envoi
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours...';
+                
+                // Paramètres du template email
+                const templateParams = {
+                    name: userEmail,
+                    email: userEmail,
+                    message: message
+                };
+                
+                console.log('Envoi avec:', templateParams);
+                
+                emailjs.send('service_pblhj3q', 'template_auw5p8w', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert('Message envoyé avec succès !');
+                        contactForm.reset();
+                        modal.style.display = 'none';
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert('Erreur lors de l\'envoi : ' + error.text);
+                    })
+                    .finally(function() {
+                        // Réactiver le bouton
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Envoyer';
+                    });
+            });
         });
     </script>
 </body>
