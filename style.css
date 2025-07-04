@@ -33,7 +33,13 @@ body {
     margin: 0 40px;
 }
 
-
+.gradient-text {
+    color: #928DAB;
+    text-shadow: 
+        0 0 5px #928DAB,
+        0 0 10px #928DAB,
+        0 0 15px #928DAB;
+}
 
 .nav-menu {
     display: flex;
