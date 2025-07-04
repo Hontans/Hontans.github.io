@@ -17,7 +17,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px; /* Ajout de padding pour la marge */
+    padding: 20px;
     background: transparent;
     display: flex;
     justify-content: space-between;
@@ -30,15 +30,10 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 0 40px; /* Augmentation de la marge horizontale */
+    margin: 0 40px;
 }
 
-.logo {
-    font-size: 2rem; /* Augmentation de 1.5rem à 2rem */
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-}
+
 
 .nav-menu {
     display: flex;
@@ -132,6 +127,7 @@ body {
     background: #928DAB;
     color: #1F1C2C;
     box-shadow: 0 0 20px #928DAB;
+    transform: scale(1.1);
 }
 
 #contact-form button {
@@ -145,7 +141,7 @@ body {
 }
 
 .flipboard-link:hover {
-    transform: none;
+    transform: scale(1.1);
 }
 
 .flipboard-link i {
@@ -182,6 +178,7 @@ body {
     background: #928DAB;
     color: #1F1C2C;
     box-shadow: 0 0 20px #928DAB;
+    transform: scale(1.2);
 }
 
 .section {
@@ -330,29 +327,6 @@ body {
 .form-group textarea {
     resize: vertical;
     min-height: 100px;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes showRight {
-    100% {
-        width: 0;
-    }
-}
-
-@keyframes manipActiveHover {
-    100% {
-        pointer-events: auto;
-    }
 }
 
 canvas {
@@ -515,17 +489,40 @@ canvas {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes showRight {
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes manipActiveHover {
+    100% {
+        pointer-events: auto;
+    }
+}
+
 @media (max-width: 1200px) {
     .header {
         padding: 20px 5%;
     }
     
     .navbar {
-        margin: 0 30px; /* Réduction légère de la marge */
+        margin: 0 30px;
     }
     
-    .logo {
-        font-size: 1.8rem; /* Augmentation pour écrans moyens-larges */
+    .navbar h1 {
+        font-size: 1.8rem;
     }
     
     .home,
@@ -544,11 +541,11 @@ canvas {
     }
     
     .navbar {
-        margin: 0 20px; /* Réduction de la marge pour les écrans moyens */
+        margin: 0 20px;
     }
     
-    .logo {
-        font-size: 1.6rem; /* Augmentation pour écrans moyens */
+    .navbar h1 {
+        font-size: 1.6rem;
     }
     
     .navbar a {
@@ -595,11 +592,11 @@ canvas {
     
     .navbar {
         justify-content: space-between;
-        margin: 0 15px; /* Marge réduite pour tablettes */
+        margin: 0 15px;
     }
     
-    .logo {
-        font-size: 1.4rem; /* Augmentation pour tablettes */
+    .navbar h1 {
+        font-size: 1.4rem;
     }
 }
 
@@ -608,14 +605,14 @@ canvas {
         padding: 15px 5%;
     }
     
-    .logo {
-        font-size: 1.3rem; /* Augmentation de 22px à environ 1.3rem */
+    .navbar h1 {
+        font-size: 1.3rem;
     }
     
     .navbar {
         width: 100%;
         justify-content: space-between;
-        margin: 0 10px; /* Marge encore réduite pour mobile */
+        margin: 0 10px;
     }
     
     .navbar a {
@@ -718,12 +715,12 @@ canvas {
         padding: 10px 3%;
     }
     
-    .logo {
-        font-size: 1.1rem; /* Augmentation de 20px à environ 1.1rem */
+    .navbar h1 {
+        font-size: 1.1rem;
     }
     
     .navbar {
-        margin: 0 5px; /* Marge minimale pour très petits écrans */
+        margin: 0 5px;
     }
     
     .navbar a {
