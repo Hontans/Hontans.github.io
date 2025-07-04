@@ -274,15 +274,6 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
-.section-content p {
-    font-size: 16px;
-    color: #ededed;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
 .veille-item {
     background: rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(146, 141, 171, 0.2);
@@ -673,15 +664,6 @@ canvas {
     color: #ffffff;
     font-weight: bold;
     font-size: 1.1rem;
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 2rem;
-    font-style: italic;
-    font-weight: 300;
 }
 
 /* Animation d'apparition des cartes */
