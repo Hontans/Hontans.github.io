@@ -80,7 +80,7 @@ body {
     margin-bottom: 20px;
 }
 
-.home-content h3 {
+.home-content h2 {
     font-size: 32px;
     font-weight: 700;
     color: #928DAB;
@@ -573,7 +573,7 @@ canvas {
         margin: 0 30px;
     }
     
-    .navbar h1 {
+    .navbar div {
         font-size: 1.8rem;
     }
     
@@ -596,7 +596,7 @@ canvas {
         margin: 0 20px;
     }
     
-    .navbar h1 {
+    .navbar div {
         font-size: 1.6rem;
     }
     
@@ -608,7 +608,7 @@ canvas {
         font-size: 36px;
     }
     
-    .home-content h3 {
+    .home-content h2 {
         font-size: 28px;
     }
     
@@ -647,7 +647,7 @@ canvas {
         margin: 0 15px;
     }
     
-    .navbar h1 {
+    .navbar div {
         font-size: 1.4rem;
     }
 }
@@ -657,7 +657,7 @@ canvas {
         padding: 15px 5%;
     }
     
-    .navbar h1 {
+    .navbar div {
         font-size: 1.3rem;
     }
     
@@ -680,7 +680,7 @@ canvas {
         margin-bottom: 15px;
     }
     
-    .home-content h3 {
+    .home-content h2 {
         font-size: 20px;
         margin-bottom: 20px;
     }
@@ -767,7 +767,7 @@ canvas {
         padding: 10px 3%;
     }
     
-    .navbar h1 {
+    .navbar div {
         font-size: 1.1rem;
     }
     
@@ -783,7 +783,7 @@ canvas {
         font-size: 24px;
     }
     
-    .home-content h3 {
+    .home-content h2 {
         font-size: 18px;
     }
     
