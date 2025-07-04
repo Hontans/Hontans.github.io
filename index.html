@@ -123,6 +123,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Sélection des éléments du DOM
             const navLinks = document.querySelectorAll('.nav-link');
             const drawerLinks = document.querySelectorAll('.drawer-link');
             const sections = document.querySelectorAll('.section');
@@ -131,13 +132,13 @@
             const drawerOverlay = document.querySelector('.drawer-overlay');
             const drawerClose = document.querySelector('.drawer-close');
 
-            // Fonction pour changer de section
+            // Fonction pour changer de section active
             function changeSection(targetId, clickedElement) {
-                // Retirer active de tous les liens
+                // Supprimer la classe active de tous les liens de navigation
                 navLinks.forEach(nav => nav.classList.remove('active'));
                 drawerLinks.forEach(link => link.classList.remove('active'));
                 
-                // Ajouter active au lien cliqué
+                // Ajouter la classe active au lien cliqué
                 clickedElement.classList.add('active');
                 
                 // Masquer toutes les sections
@@ -146,19 +147,20 @@
                     section.classList.remove('active');
                 });
                 
-                // Afficher la section cible
+                // Afficher la section ciblée
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.style.display = 'flex';
                     targetSection.classList.add('active');
                     
+                    // Animation d'apparition de la section
                     setTimeout(() => {
                         targetSection.style.opacity = '1';
                     }, 10);
                 }
             }
 
-            // Navigation entre sections (navbar desktop)
+            // Gestion de la navigation pour la barre de navigation desktop
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -167,74 +169,76 @@
                 });
             });
 
-            // Navigation entre sections (drawer mobile)
+            // Gestion de la navigation pour le menu mobile (drawer)
             drawerLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     changeSection(targetId, this);
-                    closeDrawer();
+                    closeDrawer(); // Fermer le drawer après la navigation
                 });
             });
 
-            // Fonctions pour gérer le drawer
+            // Fonction pour ouvrir le menu mobile
             function openDrawer() {
                 drawer.classList.add('open');
                 drawerOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // Empêcher le défilement de la page
             }
 
+            // Fonction pour fermer le menu mobile
             function closeDrawer() {
                 drawer.classList.remove('open');
                 drawerOverlay.classList.remove('active');
-                document.body.style.overflow = '';
+                document.body.style.overflow = ''; // Restaurer le défilement
             }
 
-            // Événements du drawer
+            // Événements pour gérer l'ouverture et fermeture du drawer
             hamburger.addEventListener('click', openDrawer);
             drawerClose.addEventListener('click', closeDrawer);
             drawerOverlay.addEventListener('click', closeDrawer);
 
-            // Modal de contact
+            // Gestion de la modal de contact
             const modal = document.getElementById('contact-modal');
             const contactBtn = document.getElementById('contact-btn');
             const closeBtn = document.querySelector('.close');
             const contactForm = document.getElementById('contact-form');
 
-            // Ouvrir la modal
+            // Ouvrir la modal de contact
             contactBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 modal.style.display = 'block';
             });
 
-            // Fermer la modal
+            // Fermer la modal avec le bouton X
             closeBtn.addEventListener('click', function() {
                 modal.style.display = 'none';
             });
 
-            // Fermer la modal en cliquant à l'extérieur
+            // Fermer la modal en cliquant sur l'overlay
             window.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     modal.style.display = 'none';
                 }
             });
 
-            // Initialiser EmailJS
+            // Initialisation du service EmailJS avec la clé publique
             emailjs.init('ZrIAbgCHLv-PmZ8-l');
 
-            // Gestionnaire d'envoi du formulaire
+            // Gestion de l'envoi du formulaire de contact
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                // Récupération des données du formulaire
                 const userEmail = document.getElementById('user-email').value;
                 const message = document.getElementById('message').value;
                 const submitBtn = e.target.querySelector('button[type="submit"]');
                 
-                // Désactiver le bouton pendant l'envoi
+                // Désactiver le bouton pendant l'envoi pour éviter les envois multiples
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Envoi en cours...';
                 
-                // Paramètres du template email
+                // Préparation des paramètres pour le template d'email
                 const templateParams = {
                     name: userEmail,
                     email: userEmail,
@@ -243,18 +247,21 @@
                 
                 console.log('Envoi avec:', templateParams);
                 
+                // Envoi de l'email via EmailJS
                 emailjs.send('service_pblhj3q', 'template_auw5p8w', templateParams)
                     .then(function(response) {
+                        // Succès de l'envoi
                         console.log('SUCCESS!', response.status, response.text);
                         alert('Message envoyé avec succès !');
-                        contactForm.reset();
-                        modal.style.display = 'none';
+                        contactForm.reset(); // Réinitialiser le formulaire
+                        modal.style.display = 'none'; // Fermer la modal
                     }, function(error) {
+                        // Erreur lors de l'envoi
                         console.log('FAILED...', error);
                         alert('Erreur lors de l\'envoi : ' + error.text);
                     })
                     .finally(function() {
-                        // Réactiver le bouton
+                        // Réactiver le bouton dans tous les cas
                         submitBtn.disabled = false;
                         submitBtn.textContent = 'Envoyer';
                     });
