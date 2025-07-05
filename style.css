@@ -263,17 +263,20 @@ body {
 }
 
 #projets .section-content,
-#activites .section-content {
+#activites .section-content,
+#veille .section-content {
     text-align: center;
 }
 
 #projets .section-content h2,
-#activites .section-content h2 {
+#activites .section-content h2,
+#veille .section-content h2 {
     background: linear-gradient(45deg, #928DAB, #ededed);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
 .veille-item {
     background: rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(146, 141, 171, 0.2);
@@ -581,7 +584,7 @@ canvas {
 .competence-card:hover {
     transform: translateY(-10px) scale(1.05);
     border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
     z-index: 10;
 }
 
