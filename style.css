@@ -741,12 +741,11 @@ canvas {
     text-align: left;
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
+    text-align: center;
 }
 
 .competences-tableau th {
     background: rgba(146, 141, 171, 0.2);
-    color: #928DAB;
-    font-weight: 600;
 }
 
 
