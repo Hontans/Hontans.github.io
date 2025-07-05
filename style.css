@@ -739,13 +739,22 @@ canvas {
 .competences-tableau td {
     padding: 1rem;
     text-align: left;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    border: 1px solid rgba(146, 141, 171, 0.3);
     text-align: center;
 }
 
 .competences-tableau th {
     background: rgba(146, 141, 171, 0.2);
+}
+
+.competence-check {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.competence-check:hover {
+    background: rgba(146, 141, 171, 0.3);
 }
 
 
