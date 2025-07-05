@@ -890,6 +890,11 @@ body {
         gap: 1.2rem;
     }
     
+    .card-overlay {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+    
     .competences-tableau table {
         font-size: 12px;
     }
@@ -1002,6 +1007,22 @@ body {
         width: 280px;
     }
     
+    .card-overlay {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.5rem;
+    }
+    
+    .card-overlay h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .card-overlay li {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+    
     .competences-tableau table {
         font-size: 11px;
         min-width: 500px;
@@ -1081,6 +1102,22 @@ body {
     
     .drawer {
         width: 260px;
+    }
+    
+    .card-overlay {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.2rem;
+    }
+    
+    .card-overlay h4 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .card-overlay li {
+        font-size: 0.8rem;
+        margin-bottom: 0.7rem;
     }
     
     .competences-tableau table {
@@ -1179,6 +1216,22 @@ body {
         font-size: 14px;
     }
     
+    .card-overlay {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        padding: 1rem;
+    }
+    
+    .card-overlay h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.7rem;
+    }
+    
+    .card-overlay li {
+        font-size: 0.75rem;
+        margin-bottom: 0.6rem;
+    }
+    
     .competences-tableau table {
         font-size: 9px;
         min-width: 400px;
@@ -1233,6 +1286,22 @@ body {
     
     .drawer {
         width: 220px;
+    }
+    
+    .card-overlay {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        padding: 0.8rem;
+    }
+    
+    .card-overlay h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .card-overlay li {
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
     }
     
     .competences-tableau table {
