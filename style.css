@@ -718,80 +718,35 @@ canvas {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #ffffff;
+    color: #928DAB;
     text-align: center;
+    text-shadow: 0 0 4px;
 }
 
-.tableau-container {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    overflow-x: auto;
-    position: relative;
-}
-
-.competences-table {
+.competences-tableau table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
-    background: transparent;
-    position: relative;
-    z-index: 2;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.competences-table th,
-.competences-table td {
+.competences-tableau th,
+.competences-tableau td {
     padding: 1rem;
-    text-align: center;
+    text-align: left;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
-.competences-table th {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+.competences-tableau th {
+    background: rgba(146, 141, 171, 0.2);
+    color: #928DAB;
     font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.activity-cell {
-    text-align: left !important;
-    font-weight: 500;
-    color: #ffffff;
-    max-width: 300px;
-    line-height: 1.4;
-}
-
-.competence-mark {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-
-.competences-table td {
-    color: #ffffff;
-}
-
-/* Animation d'apparition du tableau */
-@keyframes tableSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.competences-tableau {
-    animation: tableSlideIn 0.8s ease forwards;
-    animation-delay: 0.7s;
-    opacity: 0;
 }
 
 
