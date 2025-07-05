@@ -80,7 +80,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Add this new rule for the div element */
 .logo-text {
     font-size: 25px;
     font-weight: 700;
@@ -105,14 +104,6 @@ body {
     border-right: 2px solid #928DAB;
     max-width: 0;
     animation: typing 4s steps(21, end) infinite, blink-caret 0.75s step-end infinite;
-}
-
-.typing-animation::before {
-    content: '';
-}
-
-.typing-animation::after {
-    content: '';
 }
 
 @keyframes typing {
@@ -198,10 +189,6 @@ body {
 .flipboard-link {
     gap: 1rem;
     margin-top: 2rem;
-}
-
-.flipboard-link:hover {
-    transform: scale(1.1);
 }
 
 .flipboard-link i {
@@ -386,11 +373,6 @@ body {
     min-height: 100px;
 }
 
-canvas {
-    display: block;
-    vertical-align: bottom;
-}
-
 #particles-js {
     position: absolute;
     width: 100%;
@@ -399,39 +381,6 @@ canvas {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-}
-
-.count-particles {
-    background: #000022;
-    position: absolute;
-    top: 48px;
-    left: 0;
-    width: 80px;
-    color: #13E8E9;
-    font-size: .8em;
-    text-align: left;
-    text-indent: 4px;
-    line-height: 14px;
-    padding-bottom: 2px;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    border-radius: 0 0 3px 3px;
-}
-
-.js-count-particles {
-    font-size: 1.1em;
-}
-
-#stats,
-.count-particles {
-    -webkit-user-select: none;
-    margin-top: 5px;
-    margin-left: 5px;
-}
-
-#stats {
-    border-radius: 3px 3px 0 0;
-    overflow: hidden;
 }
 
 .hamburger {
@@ -546,7 +495,6 @@ canvas {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Styles pour le référentiel des compétences - inspiré de la section veille */
 .competences-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -727,20 +675,19 @@ canvas {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 2rem;
-    animation: fadeIn 0.5s ease-in-out;
     border-radius: 10px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .competences-tableau th,
 .competences-tableau td {
     padding: 1rem;
-    text-align: left;
-    border: 1px solid rgba(146, 141, 171, 0.3);
     text-align: center;
+    border: 1px solid rgba(146, 141, 171, 0.3);
 }
 
 .competences-tableau th {
@@ -757,7 +704,6 @@ canvas {
     background: rgba(146, 141, 171, 0.3);
 }
 
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -766,18 +712,6 @@ canvas {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes showRight {
-    100% {
-        width: 0;
-    }
-}
-
-@keyframes manipActiveHover {
-    100% {
-        pointer-events: auto;
     }
 }
 
