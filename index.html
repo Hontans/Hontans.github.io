@@ -401,52 +401,7 @@
                     modal.style.display = 'none';
                 }
             });
-
-            // Initialisation du service EmailJS avec la clé publique
-            emailjs.init('ZrIAbgCHLv-PmZ8-l');
-
-            // Gestion de l'envoi du formulaire de contact
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Récupération des données du formulaire
-                const userEmail = document.getElementById('user-email').value;
-                const message = document.getElementById('message').value;
-                const submitBtn = e.target.querySelector('button[type="submit"]');
-                
-                // Désactiver le bouton pendant l'envoi pour éviter les envois multiples
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Envoi en cours...';
-                
-                // Préparation des paramètres pour le template d'email
-                const templateParams = {
-                    name: userEmail,
-                    email: userEmail,
-                    message: message
-                };
-                
-                console.log('Envoi avec:', templateParams);
-                
-                // Envoi de l'email via EmailJS
-                emailjs.send('service_pblhj3q', 'template_auw5p8w', templateParams)
-                    .then(function(response) {
-                        // Succès de l'envoi
-                        console.log('SUCCESS!', response.status, response.text);
-                        alert('Message envoyé avec succès !');
-                        contactForm.reset(); // Réinitialiser le formulaire
-                        modal.style.display = 'none'; // Fermer la modal
-                    }, function(error) {
-                        // Erreur lors de l'envoi
-                        console.log('FAILED...', error);
-                        alert('Erreur lors de l\'envoi : ' + error.text);
-                    })
-                    .finally(function() {
-                        // Réactiver le bouton dans tous les cas
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Envoyer';
-                    });
             });
-        });
     </script>
 </body>
 </html>
