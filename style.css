@@ -168,6 +168,7 @@ body {
     font-weight: 600;
     transition: .5s ease;
     padding: 12px 28px;
+    margin: 5px;
     box-shadow: 0 0 15px rgba(146, 141, 171, 0.4);
 }
 
