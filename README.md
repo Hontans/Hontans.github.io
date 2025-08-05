@@ -1,4 +1,4 @@
-# Portfolio de Sylvain Hontans
+# Mon Portfolio HONTANS Sylvain
 
 Un portfolio personnel moderne et responsive présentant mon parcours professionnel, mes projets et mes compétences en tant qu'étudiant en BTS SIO SLAM.
 
