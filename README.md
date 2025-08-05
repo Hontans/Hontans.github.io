@@ -40,9 +40,7 @@ git clone https://github.com/Hontans/Hontans.github.io.git
 cd Hontans.github.io
 ```
 
-2. **Ouvrir le projet**
-
-- Ouvrir directement index.html dans votre navigateur
+2. **Aller dans le projet et ouvrir directement index.html dans votre navigateur**
 
 3. **Accéder au site**
 Ouvrir [http://localhost:8000](http://localhost:8000) dans votre navigateur
