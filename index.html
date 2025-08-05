@@ -226,18 +226,27 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td class="activity-cell">Développement de la "Maison des ligues" site web pour présenter les différentes ligues sportives.</td>
+                                <td></td>
+                                <td></td>
+                                <td class="competence-check clickable" onclick="window.open('https://fastaze.github.io/maison-de-ligue/', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://github.com/FastAze/maison-de-ligue', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://pages.github.com/', '_blank')">✓</td>
+                                <td></td>
+                            </tr>
+                            <tr>
                                 <td class="activity-cell">Développement de "AppFaq" site web de foires aux questions sur la maison des ligues.</td>
-                                <td class="competence-check clickable" onclick="window.open('/preuves/image4.png', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image4.png')">✓</td>
                                 <td></td>
-                                <td></td>
-                                <td class="competence-check clickable" onclick="window.open('/preuves/image2.png', '_blank')">✓</td>
-                                <td class="competence-check clickable" onclick="window.open('/preuves/image3.png', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://appfaq.page.gd/', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://trello.com/b/hwoYnDfh', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image6.png')">✓</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td class="activity-cell">Développement de "Eco" site web boutique e-commerce dans le cadre d'un stage à Maser Ingénierie</td>
-                                <td class="competence-check clickable" onclick="window.open('/preuves/image.png', '_blank')">✓</td>
-                                <td class="competence-check clickable" onclick="window.open('/preuves/image1.png', '_blank')">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image.png')">✓</td>
+                                <td></td>
                                 <td></td>
                                 <td class="competence-check clickable" onclick="window.open('https://github.com/Hontans/eco', '_blank')">✓</td>
                                 <td></td>
@@ -265,13 +274,19 @@
                                 <td class="activity-cell">Portfolio</td>
                                 <td></td>
                                 <td></td>
-                                <td class="competence-check" onclick="window.open('https://pages.github.com/', '_blank')">✓</td>
                                 <td></td>
-                                <td class="competence-check clickable" onclick="window.open('https://hontans.github.io/', '_blank')">✓</td>
+                                <td></td>
+                                <td class="competence-check clickable" onclick="window.open('https://pages.github.com/', '_blank')">✓</td>
                                 <td class="competence-check">✓</td>
                             </tr>
                         </tbody>
                     </table>
+                    <div id="image-modal" class="modal" style="display: none;">
+                        <div class="modal-content image-modal-content">
+                            <span class="close image-close" aria-label="Fermer l'image">&times;</span>
+                            <img id="modal-image" src="" alt="Preuve de compétence" style="max-width: 95%; max-height: 95%; width: auto; height: auto; object-fit: contain;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -311,6 +326,29 @@
             const drawer = document.querySelector('.drawer');
             const drawerOverlay = document.querySelector('.drawer-overlay');
             const drawerClose = document.querySelector('.drawer-close');
+
+            // Gestion de la modal d'image
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const imageClose = document.querySelector('.image-close');
+
+            // Fonction pour ouvrir le popup d'image
+            window.openImagePopup = function(imageSrc) {
+                modalImage.src = imageSrc;
+                imageModal.style.display = 'block';
+            };
+
+            // Fermer la modal d'image avec le bouton X
+            imageClose.addEventListener('click', function() {
+                imageModal.style.display = 'none';
+            });
+
+            // Fermer la modal d'image en cliquant sur l'overlay
+            window.addEventListener('click', function(e) {
+                if (e.target === imageModal) {
+                    imageModal.style.display = 'none';
+                }
+            });
 
             // Fonction pour changer de section active
             function changeSection(targetId, clickedElement) {
