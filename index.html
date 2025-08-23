@@ -47,7 +47,7 @@
         </div>
     </div>
     
-    <section id="home" class="home section">
+    <section id="home" class="home section active">
         <div class="home-content">
             <h1>Salut, je suis Sylvain Hontans</h1>
             <h2 class="typing-animation">Parcours Professionnel</h2>
@@ -293,16 +293,18 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div id="image-modal" class="modal" style="display: none;">
-                        <div class="modal-content image-modal-content">
-                            <span class="close image-close" aria-label="Fermer l'image">&times;</span>
-                            <img id="modal-image" src="" alt="Preuve de compétence" style="max-width: 95%; max-height: 95%; width: auto; height: auto; object-fit: contain;">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal d'image déplacée ici pour être accessible depuis toute la page -->
+    <div id="image-modal" class="modal" style="display: none;">
+        <div class="modal-content image-modal-content">
+            <span class="close image-close" aria-label="Fermer l'image">&times;</span>
+            <img id="modal-image" src="" alt="Preuve de compétence">
+        </div>
+    </div>
 
     <section id="veille" class="section" style="display: none;">
         <div class="section-content">
@@ -324,8 +326,34 @@
         </div>
     </section>
 
-    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-        <script>particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#928DAB"},"shape":{"type":"circle"},"opacity":{"value":0.5,"random":false,"anim":{"enable":false}},"size":{"value":3,"random":true},"line_linked":{"enable":true,"distance":150,"color":"#928DAB","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":140,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});</script>
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0;">
+        <script>
+            // Initialisation des particules avec animation d'apparition
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {"value": 80, "density": {"enable": true, "value_area": 800}},
+                    "color": {"value": "#928DAB"},
+                    "shape": {"type": "circle"},
+                    "opacity": {"value": 0.5, "random": false, "anim": {"enable": false}},
+                    "size": {"value": 3, "random": true},
+                    "line_linked": {"enable": true, "distance": 150, "color": "#928DAB", "opacity": 0.4, "width": 1},
+                    "move": {"enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": {"enable": false, "rotateX": 600, "rotateY": 1200}}
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {"onhover": {"enable": true, "mode": "grab"}, "onclick": {"enable": true, "mode": "push"}, "resize": true},
+                    "modes": {"grab": {"distance": 140, "line_linked": {"opacity": 1}}, "bubble": {"distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3}, "repulse": {"distance": 200, "duration": 0.4}, "push": {"particles_nb": 4}, "remove": {"particles_nb": 2}}
+                },
+                "retina_detect": true
+            });
+            
+            // Animation d'apparition des particules
+            setTimeout(() => {
+                const particlesContainer = document.getElementById('particles-js');
+                particlesContainer.style.transition = 'opacity 2s ease-in-out';
+                particlesContainer.style.opacity = '1';
+            }, 800);
+        </script>
     </div>
 
     <script>
@@ -356,7 +384,7 @@
             });
 
             // Fermer la modal d'image en cliquant sur l'overlay
-            window.addEventListener('click', function(e) {
+            imageModal.addEventListener('click', function(e) {
                 if (e.target === imageModal) {
                     imageModal.style.display = 'none';
                 }
@@ -381,12 +409,12 @@
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.style.display = 'flex';
-                    targetSection.classList.add('active');
                     
-                    // Animation d'apparition de la section
+                    // Déclencher les animations avec un petit délai
                     setTimeout(() => {
+                        targetSection.classList.add('active');
                         targetSection.style.opacity = '1';
-                    }, 10);
+                    }, 50);
                 }
             }
 
