@@ -252,19 +252,19 @@
                             </tr>
                             <tr>
                                 <td class="activity-cell">Développement de "RestoSwing" Applcation de gestion des commande de RestoSwing.</td>
+                                <td class="competence-check clickable" onclick="openImagePopup(['/preuves/1/1.png', '/preuves/1/2.png'])">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/1/3.png')">✓</td>
                                 <td class="competence-check clickable">✓</td>
-                                <td class="competence-check clickable">✓</td>
-                                <td class="competence-check clickable">✓</td>
-                                <td class="competence-check clickable">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://trello.com/b/jocG0p1j', '_blank')">✓</td>
                                 <td class="competence-check clickable">✓</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td class="activity-cell">Développement de "RestoSwing" Applcation de gestion des commande de RestoSwing.</td>
-                                <td class="competence-check clickable">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/1/1.png')">✓</td>
                                 <td></td>
                                 <td></td>
-                                <td class="competence-check clickable">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://trello.com/b/jocG0p1j', '_blank')">✓</td>
                                 <td></td>
                                 <td></td>
                             </tr>
@@ -348,7 +348,7 @@
     <div id="image-modal" class="modal" style="display: none;">
         <div class="modal-content image-modal-content">
             <span class="close image-close" aria-label="Fermer l'image">&times;</span>
-            <img id="modal-image" src="" alt="Preuve de compétence">
+            <div id="modal-images"></div>
         </div>
     </div>
 
@@ -415,12 +415,15 @@
 
             // Gestion de la modal d'image
             const imageModal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
+            const modalImages = document.getElementById('modal-images');
             const imageClose = document.querySelector('.image-close');
 
             // Fonction pour ouvrir le popup d'image
             window.openImagePopup = function(imageSrc) {
-                modalImage.src = imageSrc;
+                const images = Array.isArray(imageSrc) ? imageSrc : [imageSrc];
+                modalImages.innerHTML = images
+                    .map(src => `<img class="modal-proof-image" src="${src}" alt="Preuve de compétence">`)
+                    .join('');
                 imageModal.style.display = 'block';
             };
 

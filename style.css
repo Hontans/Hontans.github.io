@@ -929,7 +929,18 @@ body::-webkit-scrollbar {
     position: relative;
 }
 
-#modal-image {
+#modal-images {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    overflow-y: auto;
+}
+
+.modal-proof-image {
     max-width: 95% !important;
     max-height: 85% !important;
     width: auto !important;
