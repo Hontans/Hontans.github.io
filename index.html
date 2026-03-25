@@ -275,21 +275,21 @@
                                 <td class="competence-check clickable" onclick="openImagePopup('/preuves/1/3.png')">✓</td>
                                 <td class="competence-check clickable">✓</td>
                                 <td class="competence-check clickable" onclick="window.open('https://trello.com/b/jocG0p1j', '_blank')">✓</td>
-                                <td class="competence-check clickable">✓</td>
+                                <td class="competence-check clickable" onclick="window.open('https://github.com/FastAze/restoweb', '_blank')">✓</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td class="activity-cell">Développement de "RestoSwing" Applcation de gestion des commande de RestoSwing.</td>
-                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/1/1.png')">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup(['/preuves/1/1.png', '/preuves/2/1.png'])">✓</td>
                                 <td></td>
                                 <td></td>
                                 <td class="competence-check clickable" onclick="window.open('https://trello.com/b/jocG0p1j', '_blank')">✓</td>
-                                <td></td>
+                                <td class="competence-check clickable" onclick="window.open('https://github.com/FastAze/RestoSwing', '_blank')">✓</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td class="activity-cell">Développement de la "Maison des ligues" site web pour présenter les différentes ligues sportives.</td>
-                                <td class="competence-check clickable">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/3/1.png')">✓</td>
                                 <td></td>
                                 <td class="competence-check clickable" onclick="window.open('https://fastaze.github.io/maison-de-ligue/', '_blank')">✓</td>
                                 <td></td>
@@ -298,20 +298,11 @@
                             </tr>
                             <tr>
                                 <td class="activity-cell">Développement de "AppFaq" site web de foires aux questions sur la maison des ligues.</td>
-                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image4.png')">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup(['/preuves/4/1.png', '/preuves/4/2.png'])">✓</td>
                                 <td></td>
                                 <td class="competence-check clickable" onclick="window.open('https://appfaq.page.gd/', '_blank')">✓</td>
                                 <td class="competence-check clickable" onclick="window.open('https://trello.com/b/hwoYnDfh', '_blank')">✓</td>
-                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image6.png')">✓</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-cell">GLPI</td>
-                                <td class="competence-check clickable" onclick="window.open('/preuves/Hontans_sylvain_AP Gestion Parc 2024-2025.pdf', '_blank')">✓</td>
-                                <td>✓</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/4/3.png')">✓</td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -337,7 +328,7 @@
                             </tr>
                             <tr>
                                 <td class="activity-cell">Développement de "Eco" site web boutique e-commerce dans le cadre d'un stage à Maser Ingénierie</td>
-                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/image.png')">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup(['/preuves/7/1.png', '/preuves/7/2.png'])">✓</td>
                                 <td class="competence-check clickable" onclick="window.open('https://github.com/Hontans/eco/commits/master/', '_blank')">✓</td>
                                 <td></td>
                                 <td class="competence-check clickable" onclick="window.open('https://github.com/Hontans/eco', '_blank')">✓</td>
@@ -349,11 +340,11 @@
                             </tr>
                             <tr>
                                 <td class="activity-cell">Développement d'une application web hybride IOS et androide pour répondre à un questionnaire de l'équipe ergonomie dans le cadre d'un stage à Maser Ingénierie</td>
-                                <td class="competence-check clickable">✓</td>
-                                <td class="competence-check clickable">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup(['/preuves/8/1.png', '/preuves/8/2.png'])">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/8/3.png')">✓</td>
                                 <td></td>
-                                <td class="competence-check clickable">✓</td>
-                                <td class="competence-check clickable">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/8/4.png')">✓</td>
+                                <td class="competence-check clickable" onclick="openImagePopup('/preuves/8/5.png')">✓</td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -391,17 +382,21 @@
         </div>
     </section>
 
-    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0;">
+        <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0;">
         <script>
+            // Déterminer la couleur des particules en fonction du thème
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const particleColor = savedTheme === 'light' ? '#7c77a0' : '#928DAB';
+
             // Initialisation des particules avec animation d'apparition
             particlesJS("particles-js", {
                 "particles": {
                     "number": {"value": 80, "density": {"enable": true, "value_area": 800}},
-                    "color": {"value": "#928DAB"},
+                    "color": {"value": particleColor},
                     "shape": {"type": "circle"},
                     "opacity": {"value": 0.5, "random": false, "anim": {"enable": false}},
                     "size": {"value": 3, "random": true},
-                    "line_linked": {"enable": true, "distance": 150, "color": "#928DAB", "opacity": 0.4, "width": 1},
+                    "line_linked": {"enable": true, "distance": 150, "color": particleColor, "opacity": 0.4, "width": 1},
                     "move": {"enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": {"enable": false, "rotateX": 600, "rotateY": 1200}}
                 },
                 "interactivity": {
@@ -411,7 +406,7 @@
                 },
                 "retina_detect": true
             });
-            
+
             // Animation d'apparition des particules
             setTimeout(() => {
                 const particlesContainer = document.getElementById('particles-js');
@@ -547,7 +542,52 @@
                     modal.style.display = 'none';
                 }
             });
+
+            // Gestion du toggle de thème
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const body = document.body;
+
+            // Vérifier le thème sauvegardé dans localStorage
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            if (currentTheme === 'light') {
+                body.classList.add('light-theme');
+                themeIcon.classList.remove('bx-moon');
+                themeIcon.classList.add('bx-sun');
+            }
+
+            // Toggle le thème au clic
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('light-theme');
+
+                // Changer l'icône
+                if (body.classList.contains('light-theme')) {
+                    themeIcon.classList.remove('bx-moon');
+                    themeIcon.classList.add('bx-sun');
+                    localStorage.setItem('theme', 'light');
+                    updateParticlesColor('#7c77a0');
+                } else {
+                    themeIcon.classList.remove('bx-sun');
+                    themeIcon.classList.add('bx-moon');
+                    localStorage.setItem('theme', 'dark');
+                    updateParticlesColor('#928DAB');
+                }
+            });
+
+            // Fonction pour mettre à jour la couleur des particules
+            function updateParticlesColor(color) {
+                if (window.pJSDom && window.pJSDom[0]) {
+                    window.pJSDom[0].pJS.particles.color.value = color;
+                    window.pJSDom[0].pJS.particles.line_linked.color = color;
+                    window.pJSDom[0].fn.particlesRefresh();
+                }
+            }
             });
     </script>
+
+    <!-- Bouton de toggle du thème -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+        <i class='bx bx-moon' id="themeIcon"></i>
+    </button>
 </body>
 </html>

@@ -1,5 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+:root {
+    /* Thème sombre (par défaut) */
+    --bg-primary: #1F1C2C;
+    --bg-secondary: rgba(0, 0, 0, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: #ededed;
+    --accent-color: #928DAB;
+    --border-color: rgba(146, 141, 171, 0.2);
+    --shadow-color: rgba(146, 141, 171, 0.4);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --drawer-bg: rgba(30, 30, 46, 0.3);
+    --overlay-bg: rgba(0, 0, 0, 0.5);
+    --particle-color: #928DAB;
+}
+
+body.light-theme {
+    /* Thème clair */
+    --bg-primary: #f5f5f5;
+    --bg-secondary: rgba(255, 255, 255, 0.8);
+    --text-primary: #1F1C2C;
+    --text-secondary: #333333;
+    --accent-color: #7c77a0;
+    --border-color: rgba(124, 119, 160, 0.3);
+    --shadow-color: rgba(124, 119, 160, 0.5);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --drawer-bg: rgba(245, 245, 245, 0.95);
+    --overlay-bg: rgba(0, 0, 0, 0.3);
+    --particle-color: #7c77a0;
+}
+
 * {
     font-family: 'poppins', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -19,9 +49,10 @@
 }
 
 body {
-    background-color: #1F1C2C;
-    color: #ffffff;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
     /* Masquer la scrollbar */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -177,8 +208,8 @@ body::-webkit-scrollbar {
 }
 
 .gradient-text {
-    color: #928DAB;
-    text-shadow: 0 0 4px #928DAB;
+    color: var(--accent-color);
+    text-shadow: 0 0 4px var(--accent-color);
 }
 
 .nav-menu {
@@ -193,7 +224,7 @@ body::-webkit-scrollbar {
 }
 
 .nav-link {
-    color: #fff;
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -202,8 +233,8 @@ body::-webkit-scrollbar {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #928DAB;
-    text-shadow: 0 0 4px #928DAB;
+    color: var(--accent-color);
+    text-shadow: 0 0 4px var(--accent-color);
 }
 
 .home {
@@ -222,7 +253,7 @@ body::-webkit-scrollbar {
 .home-content h1 {
     font-size: 40px;
     font-weight: 700;
-    color: white;
+    color: var(--text-primary);
     margin-bottom: 20px;
     opacity: 0;
     transform: translateY(50px);
@@ -232,7 +263,7 @@ body::-webkit-scrollbar {
 .logo-text {
     font-size: 25px;
     font-weight: 700;
-    color: white;
+    color: var(--text-primary);
     opacity: 0;
     transform: translateX(-50px);
     animation: fadeInLeft 1s ease-out 0.4s forwards;
@@ -241,8 +272,8 @@ body::-webkit-scrollbar {
 .home-content h2 {
     font-size: 32px;
     font-weight: 700;
-    color: #928DAB;
-    text-shadow: 0 0 4px #928DAB;
+    color: var(--accent-color);
+    text-shadow: 0 0 4px var(--accent-color);
     margin-bottom: 30px;
 }
 
@@ -255,11 +286,11 @@ body::-webkit-scrollbar {
 .typing-animation {
     position: relative;
     display: inline-block;
-    color: #928DAB;
-    text-shadow: 0 0 5px #928DAB;
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--accent-color);
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid #928DAB;
+    border-right: 2px solid var(--accent-color);
     max-width: 0;
     animation: typing 4s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
 }
@@ -284,7 +315,7 @@ body::-webkit-scrollbar {
 
 @keyframes blink-caret {
     from, to {
-        border-color: #928DAB;
+        border-color: var(--accent-color);
     }
     50% {
         border-color: transparent;
@@ -293,7 +324,7 @@ body::-webkit-scrollbar {
 
 .home-content p {
     font-size: 16px;
-    color: white;
+    color: var(--text-primary);
     line-height: 1.6;
     margin-bottom: 40px;
     opacity: 0;
@@ -324,25 +355,25 @@ body::-webkit-scrollbar {
     min-width: 160px;
     height: 50px;
     background: transparent;
-    border: 2px solid #928DAB;
+    border: 2px solid var(--accent-color);
     border-radius: 25px;
     font-size: 16px;
-    color: #928DAB;
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: 600;
     transition: .5s ease;
     padding: 12px 28px;
     margin: 5px;
-    box-shadow: 0 0 15px rgba(146, 141, 171, 0.4);
+    box-shadow: 0 0 15px var(--shadow-color);
 }
 
 .btn:hover,
 .btn-box a:hover,
 .flipboard-link:hover,
 #contact-form button:hover {
-    background: #928DAB;
-    color: #1F1C2C;
-    box-shadow: 0 0 20px #928DAB;
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--accent-color);
     transform: scale(1.1);
 }
 
@@ -380,19 +411,19 @@ body::-webkit-scrollbar {
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 2px solid #928DAB;
+    border: 2px solid var(--accent-color);
     border-radius: 50%;
     font-size: 20px;
-    color: #928DAB;
+    color: var(--accent-color);
     text-decoration: none;
     transition: .5s ease;
-    box-shadow: 0 0 15px rgba(146, 141, 171, 0.4);
+    box-shadow: 0 0 15px var(--shadow-color);
 }
 
 .home-sci a:hover {
-    background: #928DAB;
-    color: #1F1C2C;
-    box-shadow: 0 0 20px #928DAB;
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--accent-color);
     transform: scale(1.2);
 }
 
@@ -415,7 +446,7 @@ body::-webkit-scrollbar {
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 3rem;
-    color: #ededed;
+    color: var(--text-secondary);
     text-align: center;
     margin-top: 0;
 }
@@ -438,7 +469,7 @@ body::-webkit-scrollbar {
 #projets .section-content h2,
 #activites .section-content h2,
 #veille .section-content h2 {
-    background: linear-gradient(45deg, #928DAB, #ededed);
+    background: linear-gradient(45deg, var(--accent-color), var(--text-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -447,16 +478,16 @@ body::-webkit-scrollbar {
 #projets .section-content h2.typing-animation,
 #activites .section-content h2.typing-animation,
 #veille .section-content h2.typing-animation {
-    background: linear-gradient(45deg, #928DAB, #ededed);
+    background: linear-gradient(45deg, var(--accent-color), var(--text-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    border-right-color: #928DAB;
+    border-right-color: var(--accent-color);
 }
 
 .veille-item {
-    background: rgba(0, 0, 0, 0.1);
-    border: 2px solid rgba(146, 141, 171, 0.2);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
     border-radius: 2rem;
     padding: 3rem;
     margin-bottom: 2rem;
@@ -477,21 +508,21 @@ body::-webkit-scrollbar {
 .section.active .veille-item:nth-child(5) { animation-delay: 0.4s; }
 
 .veille-item:hover {
-    border-color: #928DAB;
-    box-shadow: 0 0 25px rgba(146, 141, 171, 0.3);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 25px var(--shadow-color);
 }
 
 .veille-item h3 {
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #928DAB;
+    color: var(--accent-color);
     text-align: center;
 }
 
 .veille-item p {
     font-size: 16px;
-    color: #ededed;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1rem;
     text-align: left;
@@ -506,23 +537,24 @@ body::-webkit-scrollbar {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--overlay-bg);
 }
 
 .modal-content {
     backdrop-filter: blur(10px);
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid rgba(146, 141, 171, 0.3);
-    box-shadow: 0 0 10px rgba(146, 141, 171, 0.2);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px var(--shadow-color);
     border-radius: 10px;
     width: 80%;
     max-width: 500px;
     position: relative;
+    background: var(--card-bg);
 }
 
 .close {
-    color: #fff;
+    color: var(--text-primary);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -534,7 +566,7 @@ body::-webkit-scrollbar {
 
 .close:hover,
 .close:focus {
-    color: #928DAB;
+    color: var(--accent-color);
     text-decoration: none;
 }
 
@@ -572,7 +604,7 @@ body::-webkit-scrollbar {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #1f1c2c;
+    background-color: var(--bg-primary);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
@@ -591,7 +623,7 @@ body::-webkit-scrollbar {
 .hamburger .bar {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: var(--text-primary);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -602,7 +634,7 @@ body::-webkit-scrollbar {
     right: -300px;
     width: 300px;
     height: 100vh;
-    background: rgba(30, 30, 46, 0.3);
+    background: var(--drawer-bg);
     backdrop-filter: blur(10px);
     z-index: 1001;
     transition: right 0.3s ease;
@@ -618,7 +650,7 @@ body::-webkit-scrollbar {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--overlay-bg);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -639,7 +671,7 @@ body::-webkit-scrollbar {
 }
 
 .drawer-header h3 {
-    color: #fff;
+    color: var(--text-primary);
     margin: 0;
     font-size: 1.5rem;
 }
@@ -647,7 +679,7 @@ body::-webkit-scrollbar {
 .drawer-close {
     background: none;
     border: none;
-    color: #fff;
+    color: var(--text-primary);
     font-size: 1.5rem;
     cursor: pointer;
     padding: 5px;
@@ -656,7 +688,7 @@ body::-webkit-scrollbar {
 }
 
 .drawer-close:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--border-color);
 }
 
 .drawer-menu {
@@ -666,19 +698,19 @@ body::-webkit-scrollbar {
 .drawer-link {
     display: block;
     padding: 15px 20px;
-    color: #fff;
+    color: var(--text-primary);
     text-decoration: none;
     transition: all 0.3s ease;
     border-left: 4px solid transparent;
 }
 
 .drawer-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--border-color);
 }
 
 .drawer-link.active {
-    background-color: rgba(146, 141, 171, 0.2);
-    border-left-color: #928DAB;
+    background-color: var(--bg-secondary);
+    border-left-color: var(--accent-color);
 }
 
 .hamburger.active .bar:nth-child(1) {
@@ -701,9 +733,9 @@ body::-webkit-scrollbar {
 }
 
 .competence-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 2rem;
     transition: all 0.3s ease;
@@ -733,8 +765,8 @@ body::-webkit-scrollbar {
 
 .competence-card:hover {
     transform: translateY(-10px) scale(1.05);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    border-color: var(--border-color);
+    box-shadow: 0 0 25px var(--shadow-color);
     z-index: 10;
 }
 
@@ -751,7 +783,7 @@ body::-webkit-scrollbar {
 .card-content h3 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: white;
+    color: var(--text-primary);
     text-align: center;
     transition: opacity 0.3s ease;
     margin: 0;
@@ -763,8 +795,8 @@ body::-webkit-scrollbar {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0);
-    color: white;
+    background: var(--card-bg);
+    color: var(--text-primary);
     padding: 2rem;
     opacity: 0;
     transition: all 0.3s ease;
@@ -773,7 +805,7 @@ body::-webkit-scrollbar {
     width: 100%;
     height: 100%;
     z-index: 3;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     /* Masquer la scrollbar */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -797,9 +829,9 @@ body::-webkit-scrollbar {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #ffffff;
+    color: var(--text-primary);
     text-align: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 0.5rem;
 }
 
@@ -815,14 +847,14 @@ body::-webkit-scrollbar {
     position: relative;
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #ffffff;
+    color: var(--text-primary);
 }
 
 .card-overlay li:before {
     content: "▸";
     position: absolute;
     left: 0;
-    color: #ffffff;
+    color: var(--accent-color);
     font-weight: bold;
     font-size: 1.1rem;
 }
@@ -840,9 +872,9 @@ body::-webkit-scrollbar {
 }
 
 .competence-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 0;
     transition: all 0.3s ease;
@@ -878,7 +910,7 @@ body::-webkit-scrollbar {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #928DAB;
+    color: var(--accent-color);
     text-align: center;
     text-shadow: 0 0 4px;
 }
@@ -889,9 +921,9 @@ body::-webkit-scrollbar {
     margin-bottom: 2rem;
     border-radius: 10px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     animation: fadeInTable 0.5s ease-in-out;
 }
 
@@ -899,11 +931,11 @@ body::-webkit-scrollbar {
 .competences-tableau td {
     padding: 1rem;
     text-align: center;
-    border: 1px solid rgba(146, 141, 171, 0.3);
+    border: 1px solid var(--border-color);
 }
 
 .competences-tableau th {
-    background: rgba(146, 141, 171, 0.2);
+    background: var(--bg-secondary);
 }
 
 .competence-check {
@@ -913,15 +945,15 @@ body::-webkit-scrollbar {
 }
 
 .competence-check:hover {
-    background: rgba(146, 141, 171, 0.3);
+    background: var(--border-color);
 }
 
 .image-modal-content {
     margin: 3% auto;
     padding: 20px;
-    width: 80%;
-    max-width: 1000px;
-    height: 70vh;
+    width: 92%;
+    max-width: 1300px;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -941,8 +973,8 @@ body::-webkit-scrollbar {
 }
 
 .modal-proof-image {
-    max-width: 95% !important;
-    max-height: 85% !important;
+    max-width: 98% !important;
+    max-height: 95% !important;
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
@@ -956,13 +988,13 @@ body::-webkit-scrollbar {
     right: 20px;
     font-size: 28px;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-primary);
     cursor: pointer;
     z-index: 1000;
 }
 
 .image-close:hover {
-    color: #928DAB;
+    color: var(--accent-color);
 }
 
 @keyframes fadeInTable {
@@ -1598,4 +1630,40 @@ body::-webkit-scrollbar {
 
 .section.active .competences-tableau {
     animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+/* Bouton de toggle du thème */
+.theme-toggle {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--shadow-color);
+    backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+    background: var(--accent-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+.theme-toggle i {
+    font-size: 24px;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover i {
+    color: var(--bg-primary);
 }
